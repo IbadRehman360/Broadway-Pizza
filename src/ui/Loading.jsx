@@ -1,7 +1,6 @@
 function loading() {
     return (
         <div className="loader">
-            hi
         </div>
     )
 }
