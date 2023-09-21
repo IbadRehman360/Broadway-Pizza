@@ -1,10 +1,10 @@
+import { createSlice } from "@reduxjs/toolkit";
 // function getPosition() {
 //   return new Promise(function (resolve, reject) {
 //     navigator.geolocation.getCurrentPosition(resolve, reject);
 //   });
 // }
 
-import { createSlice } from "@reduxjs/toolkit";
 
 
 // async function fetchAddress() {
@@ -25,7 +25,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-  username: "ibad ur rehman"
+  username: ""
 }
 const userSlice = createSlice({
   name: "user",
@@ -37,5 +37,5 @@ const userSlice = createSlice({
   }
 })
 
-export const { updateName } = userSlice.actions;
 export default userSlice.reducer
+export const { updateName } = userSlice.actions;
