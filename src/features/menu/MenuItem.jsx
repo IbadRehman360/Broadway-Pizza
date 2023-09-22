@@ -3,6 +3,7 @@ import Button from '../../ui/Button';
 import { formatCurrency } from '../../utils/helpers';
 import { addItem, isInCard } from '../cart/cartSlice';
 import Deleteitem from '../cart/Deleteitem';
+import UpdateItemQuanitity from '../cart/UpdateItemQuanitity';
 
 function MenuItem({ pizza }) {
 
@@ -19,9 +20,8 @@ function MenuItem({ pizza }) {
     dispatch(addItem(newItems))
   }
   const itemsInCard = useSelector(isInCard(id))
-  // const isOnTheCard = itemsInCard > 0
   return (
-    <li className="flex gap-4 py-2">
+    <li className="flex gap-4 py-4 md:mt-0 ">
       <img
         src={imageUrl}
         alt={name}
@@ -40,10 +40,12 @@ function MenuItem({ pizza }) {
               Sold out
             </p>
           )}
-
           {itemsInCard &&
-            <Deleteitem pizzaId={id} type="small" />
+            <div className='flex gap-3  items-center sm:gap-8'>
 
+              <UpdateItemQuanitity pizzaId={id} quantity={itemsInCard} />
+              <Deleteitem pizzaId={id} type="small" />
+            </div>
           }
 
           {!soldOut && !itemsInCard && (
