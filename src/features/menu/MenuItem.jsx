@@ -19,7 +19,7 @@ function MenuItem({ pizza }) {
     dispatch(addItem(newItems))
   }
   const itemsInCard = useSelector(isInCard(id))
-  const isOnTheCard = itemsInCard > 0
+  // const isOnTheCard = itemsInCard > 0
   return (
     <li className="flex gap-4 py-2">
       <img
@@ -41,9 +41,12 @@ function MenuItem({ pizza }) {
             </p>
           )}
 
-          <Deleteitem type="small" />
+          {itemsInCard &&
+            <Deleteitem pizzaId={id} type="small" />
 
-          {!soldOut && (
+          }
+
+          {!soldOut && !itemsInCard && (
 
             <Button onClick={handleAddToCart} type="small">Add to cart</Button>
           )}
