@@ -48,4 +48,4 @@ export const calculatePizzasQuantity = (cart) => {
 export const calculatePizzasPrice = (cart) => {
     return cart.reduce((acc, item) => acc + item.unitPrice, 0);
 };
-export const isCartData = (store) => !!store.cart.cart?.length;
+export const isInCard = id => store => store.cart.cart.find(items => items.pizzaId === id)?.quantity ?? 0; 
