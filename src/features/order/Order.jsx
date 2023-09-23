@@ -10,6 +10,7 @@ import {
   formatDate,
 } from '../../utils/helpers';
 import { useEffect } from 'react';
+import MakePriority from './MakePriority';
 
 
 function Order() {
@@ -33,7 +34,6 @@ function Order() {
       fetcher.load('/menu');
     }
   }, [fetcher]);
-  console.log(fetcher.data);
 
 
   return (
@@ -85,6 +85,9 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+      {!priority &&
+        <MakePriority />
+      }
     </div>
   );
 }
